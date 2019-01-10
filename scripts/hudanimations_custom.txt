@@ -1,0 +1,22 @@
+event HudTournament_MoveChatWindow
+{
+	RunEvent CompetitiveGame_LowerChatWindow 0
+	RunEvent CompetitiveGame_RestoreChatWindow 8
+}
+
+event SurveyShowSequence
+{
+	RunEventChild Survey SurveyDelete 0.0
+}
+
+event TeamStatus_PlayerDead
+{
+	SetVisible DeathPanel  0 0
+	SetVisible respawntime 1 0
+}
+
+event TeamStatus_PlayerAlive
+{
+	SetVisible DeathPanel  0 0
+	SetVisible respawntime 0 0
+}
