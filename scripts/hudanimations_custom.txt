@@ -20,3 +20,90 @@ event TeamStatus_PlayerAlive
 	SetVisible DeathPanel  0 0
 	SetVisible respawntime 0 0
 }
+
+event MenuOpen
+{
+	StopEvent MenuClose 0.0
+
+	Animate HudMenu		Alpha			"255"		Linear 0.0 0.0
+	Animate HudMenu		SelectionAlpha	"255"		Linear 0.0 0.0
+	Animate HudMenu		FgColor			"FgColor"	Linear 0.0 0.0
+	Animate HudMenu		MenuColor		"MenuColor"	Linear 0.0 0.0
+	Animate HudMenu		ItemColor		"ItemColor"	Linear 0.0 0.0
+	Animate HudMenu		TextScan		"1"			Linear 0.0 0.0
+
+	RunEvent CompetitiveGame_RestoreChatWindow 0.0
+}
+
+event MenuClose
+{
+	Animate HudMenu		Alpha			"0"			Linear 0.0 0.0
+	Animate HudMenu		SelectionAlpha	"0"			Linear 0.0 0.0
+	Animate HudMenu		FgColor			"0 0 0 0"	Linear 0.0 0.0
+	Animate HudMenu		MenuColor		"0 0 0 0"	Linear 0.0 0.0
+	Animate HudMenu		ItemColor		"0 0 0 0"	Linear 0.0 0.0
+}
+
+event MenuPulse
+{
+}
+
+event HudLowAmmoPulse
+{
+	Animate AmmoInReserve	FgColor		"TanLight"		Linear 0.0 0.075
+	Animate AmmoNoClip		FgColor		"TanLight"		Linear 0.0 0.075
+	Animate AmmoInReserve	FgColor		"LighterRed"		Linear 0.125 0.075
+	Animate AmmoNoClip		FgColor		"LighterRed"		Linear 0.125 0.075
+
+	RunEvent HudLowAmmoPulseLoop	0.25
+}
+
+event HudLowAmmoPulseStop
+{
+	StopEvent HudLowAmmoPulse 0.0
+	StopEvent HudLowAmmoPulseLoop 0.0
+
+	Animate AmmoInReserve	FgColor		"TanLight"		Linear 0.0 0.0001
+	Animate AmmoNoClip		FgColor		"TanLight"		Linear 0.0 0.0001
+}
+
+event DamagedPlayer
+{
+	// Workaround for FPS drops caused by stacking DamgedPlayer animations
+	// Credit to sigsegv for suggesting this as a possibile fix
+	// https://redd.it/57760o
+	StopEvent BlinkDamageNumber 0.0
+	RunEvent BlinkDamageNumber 0.01
+}
+
+event BlinkDamageNumber
+{
+	Animate	DamageAccountValue		Alpha		"255"			Linear 0.0 0.01
+	Animate DamageAccountValue		FgColor		"LighterRed"	Linear 0.0 0.0001
+	Animate DamageAccountValue		FgColor		"TanLight"		Accel 0.05 0.1
+	Animate DamageAccountValue		Alpha		"0"				Linear 2 0.15
+}
+
+event HudSnapShotReminderIn
+{
+	Animate ScreenshotPanel Position	"c-83 -40"	Linear 0.0 0.001
+	Animate ScreenshotPanel Position	"c-83 40"	Spline 0.001 0.2
+
+	// Trigger Stop animation events to fix stuck colors
+	RunEvent HudHealthDyingPulseStop	10.0
+	RunEvent HudHealthBonusPulseStop	10.0
+	RunEvent HudLowAmmoPulseStop		10.0
+	RunEvent HudMedicChargedStop		10.0
+}
+
+event HudReplayReminderIn
+{
+	Animate ReplayReminder Position	"c-83 -40"	Linear 0.0 0.001
+	Animate ReplayReminder Position	"c-83 40"	Spline 0.001 0.2
+}
+
+event HudReplayReminderIn2
+{
+	Animate ReplayReminder Position	"c-83 -40"	Linear 0.0 0.001
+	Animate ReplayReminder Position	"c-83 40"	Spline 0.001 0.2
+}

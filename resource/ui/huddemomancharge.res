@@ -40,5 +40,6 @@
 		"wide_minmode"	"60"
 		"tall"			"10"
 		"tall_minmode"	"3"
+		"bgcolor_override"	"Black"
 	}
 }

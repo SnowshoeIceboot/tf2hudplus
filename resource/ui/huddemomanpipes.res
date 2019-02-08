@@ -48,6 +48,7 @@
 		"wide"			"100"
 		"wide_minmode"	"60"
 		"tall"			"3"
+		"bgcolor_override"	"Black"
 	}
 	
 	"PipesPresentPanel"

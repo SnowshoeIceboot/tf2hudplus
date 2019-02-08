@@ -61,6 +61,7 @@
 		"wide"			"100"
 		"wide_minmode"	"60"
 		"tall"			"3"
+		"bgcolor_override"	"Black"
 	}
 	
 	"ChargeMeter1"
@@ -72,6 +73,7 @@
 		"wide"			"22"
 		"wide_minmode"	"13"
 		"tall"			"3"
+		"bgcolor_override"	"Black"
 	}
 	
 	"ChargeMeter2"
@@ -83,6 +85,7 @@
 		"wide"			"22"
 		"wide_minmode"	"13"
 		"tall"			"3"
+		"bgcolor_override"	"Black"
 	}
 	
 	"ChargeMeter3"
@@ -94,6 +97,7 @@
 		"wide"			"22"
 		"wide_minmode"	"13"
 		"tall"			"3"
+		"bgcolor_override"	"Black"
 	}
 	
 	"ChargeMeter4"
@@ -105,6 +109,7 @@
 		"wide"			"22"
 		"wide_minmode"	"13"
 		"tall"			"3"
+		"bgcolor_override"	"Black"
 	}
 	
 	"HealthClusterIcon"
