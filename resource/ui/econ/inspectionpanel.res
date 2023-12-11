@@ -14,7 +14,7 @@
 		
 		"SeedTextEntry"
 		{
-			"maxchars"		"19"
+			"maxchars"		"20"
 			
 			"consume_mode"
 			{
